@@ -1,18 +1,19 @@
 {
 	"name": "vega-drawing-server",
 	"scripts": {
-		"build": "bun build ./src/index.ts --outdir=dist --minify",
+		"build": "bun build ./src/index.ts --outdir=dist --target=node --minify",
 		"format": "bunx biome format --write .",
 		"lint": "bunx biome lint --write .",
-		"dev": "wrangler dev",
-		"deploy": "wrangler deploy --minify"
+		"dev": "bun run ./src/index.ts --watch",
+		"start": "bun run ./dist/index.js"
 	},
 	"devDependencies": {
-		"hono": "^4.7.2",
-		"@cloudflare/workers-types": "^4.20250214.0",
-		"wrangler": "^3.109.2",
 		"@biomejs/biome": "1.9.4",
 		"@types/bun": "latest",
-		"plantuml-coder": "^0.0.2"
-	}
+		"@types/pako": "^2.0.3",
+		"hono": "^4.7.2",
+		"pako": "^2.1.0",
+		"@hono/node-server": "^1.13.8"
+	},
+	"dependencies": {}
 }

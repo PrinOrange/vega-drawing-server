@@ -1,11 +1,11 @@
-import zlib from "node:zlib";
+import * as pako from "pako";
 
 export function encode(text: string): string {
-	const compressed = zlib.deflateSync(text);
-	return compressed.toString("base64");
+	const compressed = pako.deflate(text);
+	return Buffer.from(compressed).toString("base64url");
 }
 
 export function decode(base64Str: string): string {
-	const buffer = Buffer.from(base64Str, "base64");
-	return zlib.inflateSync(buffer).toString();
+	const buffer = Buffer.from(base64Str, "base64url");
+	return pako.inflate(buffer, { to: "string" });
 }
