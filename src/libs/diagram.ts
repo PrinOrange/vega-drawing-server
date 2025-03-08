@@ -4,8 +4,7 @@ import * as vl from "vega-lite";
 
 export function generateErrorImage(message: string) {
 	return `
-<svg
-    xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg">
     <rect width="100%" height="100%" fill="white"/>
     <text x="50%" y="50%" font-size="24" text-anchor="middle" fill="red" dy=".3em">
 			${message}

@@ -24,7 +24,7 @@ app.get("/:encoded", async (c) => {
 serve(
 	{
 		fetch: app.fetch,
-		port: 3000,
+		port: 4848,
 	},
 	(info) => {
 		console.log(`Server is running on http://localhost:${info.port}`);
