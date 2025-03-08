@@ -19,6 +19,5 @@ export async function generateImage(spec: TopLevelSpec): Promise<string> {
 		renderer: "none",
 	});
 	const svg: string = await view.toSVG();
-	view.run().renderer();
 	return svg;
 }
